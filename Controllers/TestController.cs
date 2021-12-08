@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ToursApi.Controllers
 {
     [Route("api/test")]
+    [Authorize]
     public class TestController : ControllerBase
     {
         [HttpGet]

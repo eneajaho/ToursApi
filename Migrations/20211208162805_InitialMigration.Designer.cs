@@ -11,8 +11,8 @@ using ToursApi.Entities;
 namespace ToursApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211207231947_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20211208162805_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

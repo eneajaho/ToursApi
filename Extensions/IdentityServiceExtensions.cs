@@ -10,6 +10,9 @@ namespace ToursApi.Extensions
     {
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
         {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8
+                .GetBytes(config.GetSection("Jwt:Key").Value));
+            
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -18,9 +21,11 @@ namespace ToursApi.Extensions
                         ValidateIssuerSigningKey = true,
                         ValidateIssuer = false,
                         ValidateAudience = false,
-                        IssuerSigningKey =
-                            new SymmetricSecurityKey(Encoding.UTF8
-                                .GetBytes(config.GetSection("AppSettings:TokenKey").Value))
+                        // ValidateIssuer = true,
+                        // ValidateAudience = true,
+                        // ValidIssuer = config.GetSection("Jwt:Issuer").Value,  
+                        // ValidAudience = config.GetSection("Jwt:Audience").Value, 
+                        IssuerSigningKey = securityKey
                     };
                 });
 

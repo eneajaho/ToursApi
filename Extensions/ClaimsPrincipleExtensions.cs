@@ -1,12 +1,20 @@
+using System;
 using System.Security.Claims;
 
-namespace Kds.Extensions
+namespace ToursApi.Extensions
 {
     public static class ClaimsPrincipleExtensions
     {
-        public static string GetUsername(this ClaimsPrincipal user)
+        public static int GetId(this ClaimsPrincipal user)
         {
-            return user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (user == null) throw new ArgumentNullException(nameof(user));
+            return Convert.ToInt32(user.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+        }
+        
+        public static string GetName(this ClaimsPrincipal user)
+        {
+            if (user == null) throw new ArgumentNullException(nameof(user));
+            return user.FindFirst(ClaimTypes.Name)?.Value!;
         }
     }
 }

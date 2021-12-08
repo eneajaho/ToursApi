@@ -19,7 +19,7 @@ namespace ToursApi.Services
         public TokenService(IConfiguration config)
         {
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                config.GetSection("AppSettings:TokenKey").Value)
+                config.GetSection("Jwt:Key").Value)
             );
         }
 
@@ -27,7 +27,8 @@ namespace ToursApi.Services
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.Email)
+                new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Name, user.Name)
             };
 
             var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);

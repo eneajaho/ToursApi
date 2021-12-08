@@ -16,7 +16,7 @@ namespace ToursApi.Repository
             _context = context;
         }
 
-        public void Register(User user, string password)
+        public async Task Register(User user, string password)
         {
             CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
 
@@ -24,7 +24,7 @@ namespace ToursApi.Repository
             user.PasswordSalt = passwordSalt;
 
             _context.Add(user);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public async Task<User?> Login(string email, string password)

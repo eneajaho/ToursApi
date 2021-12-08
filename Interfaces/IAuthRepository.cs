@@ -5,7 +5,7 @@ namespace ToursApi.Interfaces
 {
     public interface IAuthRepository
     {
-        void Register(User user, string password);
+        Task Register(User user, string password);
         Task<User?> Login(string username, string password);
         Task<bool> UserExists(string username);
     }

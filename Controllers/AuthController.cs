@@ -32,9 +32,9 @@ namespace ToursApi.Controllers
 
             var userToCreate = _mapper.Map<User>(userForRegisterDto);
 
-            _authRepo.Register(userToCreate, userForRegisterDto.Password);
+            await _authRepo.Register(userToCreate, userForRegisterDto.Password);
 
-            return Ok(new UserDto
+            return Ok(new AuthUserDto
             {
                 Id = userToCreate.Id,
                 Name = userToCreate.Name,
@@ -56,7 +56,7 @@ namespace ToursApi.Controllers
             if (userFromRepo == null)
                 return BadRequest("The password you entered is not correct!");
 
-            return Ok(new UserDto
+            return Ok(new AuthUserDto
             {
                 Id = userFromRepo.Id,
                 Name = userFromRepo.Name,
