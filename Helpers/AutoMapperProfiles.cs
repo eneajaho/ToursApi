@@ -1,4 +1,5 @@
 using AutoMapper;
+using ToursApi.DTOs.Package;
 using ToursApi.DTOs.User;
 using ToursApi.Entities;
 
@@ -15,6 +16,11 @@ namespace ToursApi.Helpers
             CreateMap<UserForRegisterDto, User>();
             CreateMap<UserUpdateDto, User>();
             CreateMap<UserCreateDto, User>();
+
+            CreateMap<Package, PackageDto>();
+            CreateMap<PackageDto, Package>();
+            CreateMap<PackageUpdateDto, Package>();
+            CreateMap<PackageCreateDto, Package>();
 
 
             // .ForMember(dest => dest.PhotoUrl, opt

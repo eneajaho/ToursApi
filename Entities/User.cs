@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ToursApi.Entities
 {
@@ -14,5 +16,7 @@ namespace ToursApi.Entities
         public DateTime LastActive { get; set; }
 
         public string? ImageUrl { get; set; } = null!;
+
+        public ICollection<Package> Packages { get; set; } = new Collection<Package>();
     }
 }

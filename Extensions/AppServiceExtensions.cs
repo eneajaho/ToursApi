@@ -1,10 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using ToursApi.Entities;
 using ToursApi.Interfaces;
 using ToursApi.Repository;
 using ToursApi.Services;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace ToursApi.Extensions
 {
@@ -20,6 +20,7 @@ namespace ToursApi.Extensions
             // services.AddScoped<IPhotoService, PhotoService>();
             //
             services.AddScoped<UserService>();
+            services.AddScoped<PackageService>();
             // services.AddScoped<IPhotoRepository, PhotoRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             //
