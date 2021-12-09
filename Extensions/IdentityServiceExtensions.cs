@@ -12,19 +12,23 @@ namespace ToursApi.Extensions
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8
                 .GetBytes(config.GetSection("Jwt:Key").Value));
-            
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+
+            services
+                .AddAuthentication(auth =>
+                {
+                    auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
                 .AddJwtBearer(options =>
                 {
+                    options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
+                        ValidateIssuer = true,
+                        ValidIssuer = config.GetSection("Jwt:Issuer").Value,
+                        ValidateAudience = true,
+                        ValidAudience = config.GetSection("Jwt:Audience").Value,
                         ValidateIssuerSigningKey = true,
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                        // ValidateIssuer = true,
-                        // ValidateAudience = true,
-                        // ValidIssuer = config.GetSection("Jwt:Issuer").Value,  
-                        // ValidAudience = config.GetSection("Jwt:Audience").Value, 
                         IssuerSigningKey = securityKey
                     };
                 });

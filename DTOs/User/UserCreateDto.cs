@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using ToursApi.Entities;
 
 namespace ToursApi.DTOs.User
 {
@@ -15,7 +16,7 @@ namespace ToursApi.DTOs.User
         [StringLength(30, MinimumLength = 8, ErrorMessage = "You must specify password between 8 and 30 characters")]
         public string Password { get; set; } = null!;
 
-        [Required] public string Role { get; set; } = null!;
+        [Required] public Role Role { get; set; }
         [Required] public string ImageUrl { get; set; } = null!;
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;

@@ -32,7 +32,7 @@ namespace ToursApi.Services
             if (!string.IsNullOrEmpty(userParams.Name))
                 users = users.Where(x => x.Name.Contains(userParams.Name));
 
-            if (!string.IsNullOrEmpty(userParams.Role))
+            if (userParams.Role != null)
                 users = users.Where(x => x.Role == userParams.Role);
 
             // userParams inherits from PaginationParams

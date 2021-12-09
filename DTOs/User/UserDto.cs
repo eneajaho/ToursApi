@@ -1,3 +1,5 @@
+using ToursApi.Entities;
+
 namespace ToursApi.DTOs.User
 {
     public class UserDto
@@ -5,7 +7,7 @@ namespace ToursApi.DTOs.User
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Email { get; set; } = null!;
-        public string Role { get; set; }
+        public Role Role { get; set; }
         // public DateTime LastActive { get; set; }
         public string ImageUrl { get; set; } = null!;
     }
