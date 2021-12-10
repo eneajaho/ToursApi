@@ -39,7 +39,7 @@ namespace ToursApi.Controllers
                 Id = userToCreate.Id,
                 Name = userToCreate.Name,
                 Email = userToCreate.Email,
-                Role = userToCreate.Role,
+                Role = userToCreate.Role.ToString(),
                 Token = _tokenService.CreateToken(userToCreate)
             });
         }
@@ -62,7 +62,7 @@ namespace ToursApi.Controllers
                 Id = userFromRepo.Id,
                 Name = userFromRepo.Name,
                 Email = userFromRepo.Email,
-                Role = userFromRepo.Role,
+                Role = userFromRepo.Role.ToString(),
                 Token = _tokenService.CreateToken(userFromRepo)
             });
         }
