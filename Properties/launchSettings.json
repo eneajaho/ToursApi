@@ -19,6 +19,15 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+    "ToursApi-Production": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://tours-test-api.herokuapp.com",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
