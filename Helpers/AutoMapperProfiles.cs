@@ -16,6 +16,7 @@ namespace ToursApi.Helpers
             CreateMap<UserForRegisterDto, User>();
             CreateMap<UserUpdateDto, User>();
             CreateMap<UserCreateDto, User>();
+            CreateMap<SelfUserUpdateDto, User>();
 
             CreateMap<Package, PackageDto>();
             CreateMap<PackageDto, Package>();

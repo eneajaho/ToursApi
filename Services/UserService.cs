@@ -20,6 +20,9 @@ namespace ToursApi.Services
             _mapper = mapper;
         }
 
+        public async Task SaveChangesAsync() =>
+            await _context.SaveChangesAsync();
+
         public async Task<PagedData<UserDto>> GetUsersAsync(GetUsersParams userParams, int currentUserId)
         {
             var users = _context.Users

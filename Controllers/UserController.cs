@@ -53,7 +53,7 @@ namespace ToursApi.Controllers
         public async Task<IActionResult> PutUser(int id, UserUpdateDto userUpdateDto)
         {
             if (id != userUpdateDto.Id)
-                return BadRequest();
+                return BadRequest("The ID are mismatched");
 
             // if the auth user is admin he can edit any user, otherwise auth user can edit only himself
             if (id != User.GetId() && User.GetRole() == Role.User)
