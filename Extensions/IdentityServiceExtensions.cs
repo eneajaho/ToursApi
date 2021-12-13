@@ -24,10 +24,10 @@ namespace ToursApi.Extensions
                     options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        ValidateIssuer = true,
-                        ValidIssuer = config.GetSection("Jwt:Issuer").Value,
-                        ValidateAudience = true,
-                        ValidAudience = config.GetSection("Jwt:Audience").Value,
+                        ValidateIssuer = false,
+                        // ValidIssuer = config.GetSection("Jwt:Issuer").Value,
+                        ValidateAudience = false,
+                        // ValidAudience = config.GetSection("Jwt:Audience").Value,
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = securityKey
                     };

@@ -27,22 +27,19 @@ namespace ToursApi.Controllers
         public async Task<UserDto?> GetUserProfile() => 
             await _userService.GetUserByIdAsync(User.GetId());
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateUserProfile(int id, SelfUserUpdateDto userUpdateDto)
+        [HttpPut]
+        public async Task<ActionResult> UpdateUserProfile(SelfUserUpdateDto userUpdateDto)
         {
-            if (id != userUpdateDto.Id)
-                return BadRequest("You cannot update this user!");
-            
-            if (id != User.GetId())
+            if (userUpdateDto.Id != User.GetId())
                 return Unauthorized();
 
             var userFromRepo = await _userService.GetByIdAsync(User.GetId());
-            
+
             if (userFromRepo == null)
                 return NotFound();
-
-            _mapper.Map<SelfUserUpdateDto, User>(userUpdateDto, userFromRepo);
             
+            _mapper.Map<SelfUserUpdateDto, User>(userUpdateDto, userFromRepo);
+
             await _userService.SaveChangesAsync();
 
             return NoContent();

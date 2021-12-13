@@ -13,7 +13,8 @@ namespace ToursApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    // [Authorize]
+    [Authorize]
+    [AuthorizedRoles(Role.Admin)]
     public class UserController : ControllerBase
     {
         private readonly DataContext _context;
@@ -31,7 +32,6 @@ namespace ToursApi.Controllers
 
         // GET: api/User
         [HttpGet]
-        // [AuthorizedRoles(Role.Admin)]
         public async Task<PagedData<UserDto>> GetUsers([FromQuery] GetUsersParams userParams) =>
             await _userService.GetUsersAsync(userParams, User.GetId());
 
@@ -74,7 +74,6 @@ namespace ToursApi.Controllers
         // POST: api/User
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        // [AuthorizedRoles(Role.Admin)]
         public async Task<ActionResult<UserDto>> PostUser(UserCreateDto userCreateDto)
         {
             userCreateDto.Email = userCreateDto.Email.Trim().ToLower();
@@ -93,7 +92,6 @@ namespace ToursApi.Controllers
 
         // DELETE: api/User/5
         [HttpDelete("{id}")]
-        // [AuthorizedRoles(Role.Admin)]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
