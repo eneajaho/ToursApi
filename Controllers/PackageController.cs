@@ -45,7 +45,7 @@ namespace ToursApi.Controllers
         // PUT: api/Package/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [AuthorizedRoles(Role.Admin)]
+        // [AuthorizedRoles(Role.Admin)]
         public async Task<IActionResult> PutPackage(int id, PackageUpdateDto packageUpdateDto)
         {
             if (id != packageUpdateDto.Id)
@@ -69,7 +69,7 @@ namespace ToursApi.Controllers
         // POST: api/Package
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [AuthorizedRoles(Role.Admin)]
+        // [AuthorizedRoles(Role.Admin)]
         public async Task<ActionResult<PackageDto>> PostPackage(PackageCreateDto packageCreateDto)
         {
             packageCreateDto.UserId = User.GetId();
@@ -86,7 +86,7 @@ namespace ToursApi.Controllers
 
         // DELETE: api/Package/5
         [HttpDelete("{id}")]
-        [AuthorizedRoles(Role.Admin)]
+        // [AuthorizedRoles(Role.Admin)]
         public async Task<IActionResult> DeletePackage(int id)
         {
             var user = await _context.Packages.FindAsync(id);
