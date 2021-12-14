@@ -8,7 +8,6 @@ namespace ToursApi.DTOs.User
         public UserForRegisterDto()
         {
             CreatedAt = DateTime.Now;
-            LastActive = DateTime.Now;
         }
 
         [Required]
@@ -23,6 +22,5 @@ namespace ToursApi.DTOs.User
         public string ImageUrl { get; set; } = null!;
 
         public DateTime CreatedAt { get; set; }
-        public DateTime LastActive { get; set; }
     }
 }
