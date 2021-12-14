@@ -18,5 +18,6 @@ namespace ToursApi.Entities
         public string? ImageUrl { get; set; } = null!;
 
         public ICollection<Package> Packages { get; set; } = new Collection<Package>();
+        public ICollection<Favorite> Favorites { get; set; } = new Collection<Favorite>();
     }
 }

@@ -17,11 +17,9 @@ namespace ToursApi.Extensions
             );
             
             services.AddScoped<ITokenService, TokenService>();
-            // services.AddScoped<IPhotoService, PhotoService>();
-            //
             services.AddScoped<UserService>();
             services.AddScoped<PackageService>();
-            // services.AddScoped<IPhotoRepository, PhotoRepository>();
+            services.AddScoped<FavoriteService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             //
             // services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
