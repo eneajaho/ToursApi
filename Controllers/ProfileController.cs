@@ -11,7 +11,7 @@ namespace ToursApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    // [Authorize]
     public class ProfileController : ControllerBase
     {
         private readonly UserService _userService;

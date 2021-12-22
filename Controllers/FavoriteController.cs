@@ -10,7 +10,7 @@ namespace ToursApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    // [Authorize]
     public class FavoriteController : ControllerBase
     {
         private readonly FavoriteService _favoriteService;

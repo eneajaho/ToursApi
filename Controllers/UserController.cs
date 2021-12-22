@@ -13,8 +13,8 @@ namespace ToursApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
-    [AuthorizedRoles(Role.Admin)]
+    // [Authorize]
+    // [AuthorizedRoles(Role.Admin)]
     public class UserController : ControllerBase
     {
         private readonly DataContext _context;
